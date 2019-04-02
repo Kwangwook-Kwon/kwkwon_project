@@ -35,6 +35,9 @@ struct hdr_xpass {
   // temp variables for test
   int sendbuffer_;
 
+  //test for ECN
+  bool congestion_experienced_;
+
   // For header access
   static int offset_; // required by PacketHeaderManager
   inline static hdr_xpass* access(const Packet* p) {
@@ -44,6 +47,7 @@ struct hdr_xpass {
   /* per-field member access functions */
   double& credit_sent_time() { return (credit_sent_time_); }
   seq_t& credit_seq() { return (credit_seq_); }
+  bool& congestion_experience() {return (congestion_experience_)}
 };
 
 class XPassAgent;

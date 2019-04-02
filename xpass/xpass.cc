@@ -426,6 +426,7 @@ Packet* XPassAgent::construct_credit() {
 
   xph->credit_sent_time() = now();
   xph->credit_seq() = c_seqno_;
+  xph->congestion_experienced_() = false;
 
   c_seqno_ = max(1, c_seqno_+1);
 
@@ -458,6 +459,7 @@ Packet* XPassAgent::construct_data(Packet *credit) {
 
   xph->credit_sent_time() = credit_xph->credit_sent_time();
   xph->credit_seq() = credit_xph->credit_seq();
+  xph->congestion_experienced_() = credit_xph->congestion_experienced_();
   
   t_seqno_ += datalen;
 

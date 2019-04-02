@@ -47,7 +47,7 @@ struct hdr_xpass {
   /* per-field member access functions */
   double& credit_sent_time() { return (credit_sent_time_); }
   seq_t& credit_seq() { return (credit_seq_); }
-  bool& congestion_experience() {return (congestion_experience_)}
+  bool& congestion_experienced() {return (congestion_experienced_);}
 };
 
 class XPassAgent;
